@@ -25,9 +25,9 @@ def dcg(rel_scores, k=None, use_exp=False):
 
     rel_scores = np.array(rel_scores, dtype=float)[:k]
     if use_exp:
-        num = rel_scores
-    else:
         num = 2 ** rel_scores - 1
+    else:
+        num = rel_scores
 
     den = np.log2(np.arange(k) + 2)
     return np.sum(num / den)
